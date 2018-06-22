@@ -12,7 +12,7 @@ def callback(lcl, _glb):
 
 def main():
     env = gym.make("token-v0")
-    model = deepq.models.mlp([16,16])
+    model = deepq.models.mlp([128,64,64,128])
     act = deepq.learn(
         env,
         q_func=model,
@@ -23,7 +23,8 @@ def main():
         exploration_final_eps=0,
         print_freq=1,
         callback=callback,
-        checkpoint_freq= 3
+        checkpoint_freq=3,
+        gamma=0.9
     )
     print("Saving model to runtime_model.pkl")
     act.save("runtime_model.pkl")
