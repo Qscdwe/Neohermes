@@ -4,8 +4,6 @@ import gym_token
 from baselines import deepq
 import numpy as np 
 
-np.warnings.filterwarnings('ignore')
-
 def callback(lcl, _glb):
     # stop training if reward exceeds 199
     # is_solved = np.mean(lcl['episode_rewards'][-101:-1]) > -0.03
@@ -16,15 +14,15 @@ def callback(lcl, _glb):
     return is_solved
 
 def main():
-    env = gym.make("Token-v1")
-    model = deepq.models.mlp([64,64,64])
+    env = gym.make("token-v1")
+    model = deepq.models.mlp([128,64,64,128])
     act = deepq.learn(
         env,
         q_func=model,
         lr=1e-3,
-        max_timesteps=50000000,
+        max_timesteps=300000,
         buffer_size=50000,
-        exploration_fraction=0.4,
+        exploration_fraction=0.3,
         exploration_final_eps=0,
         print_freq=1,
         callback=callback,
