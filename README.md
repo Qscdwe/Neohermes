@@ -9,3 +9,8 @@ It must have baselines version 0.1.5, which is required to be installed by cloni
 The baselines version 0.1.5 but install not by cloning from github will not work (the checkpoint_path parameter will not be available).
 
 You may have to cd to this project's root directory before running main.py.
+
+1. screen 
+2. ./milk_server
+4. Ctrl a + D; screen -L
+3. python3 main.py

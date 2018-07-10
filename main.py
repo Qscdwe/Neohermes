@@ -3,8 +3,6 @@ import gym_token
 from baselines import deepq
 import numpy as np 
 
-np.warnings.filterwarnings('ignore')
-
 def callback(lcl, _glb):
     # if lcl['model_saved'] and lcl['num_episodes']%20==0:
     #     print('***',lcl)
@@ -44,4 +42,17 @@ def main():
     act.save(f"{saving_folder}/runtime_model.pkl")
 
 if __name__ == '__main__':
+    # import sys,time
+
+
+    # old_stdout = sys.stdout
+    # file_name = f"TokenLog_{time.ctime()}.log"
+    # log_file = open(file_name,"w")
+    # print(f"Logging to {file_name}")
+    # sys.stdout = log_file
+
+    np.warnings.filterwarnings('ignore')
     main()
+
+    # sys.stdout = old_stdout
+    # log_file.close()
